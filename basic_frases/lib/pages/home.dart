@@ -1,6 +1,8 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 
+import 'data.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -9,17 +11,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final List<PhrasesData> phrasesData = <PhrasesData>[
-    PhrasesData('salut', 'salut.mp3'),
-    PhrasesData('salut (germana)', 'hallo.mp3'),
-    PhrasesData('ma numesc', 'manumesc.mp3'),
-    PhrasesData('ma numesc (germana)', 'ichheisse.mp3'),
-    PhrasesData('ce faci?', 'cefaci.mp3'),
-    PhrasesData('ce faci? (germana)', 'wastustdu.mp3'),
-    PhrasesData('sunt bine!', 'suntbine.mp3'),
-    PhrasesData('sunt bine! (germana)', 'esgehtmirgut.mp3'),
-  ];
-
   AudioCache audioCache = AudioCache(
     prefix: 'assets/audio/',
   );
@@ -37,7 +28,7 @@ class _HomePageState extends State<HomePage> {
         centerTitle: true,
       ),
       body: GridView.builder(
-        itemCount: phrases.length,
+        itemCount: phrasesData.length,
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           mainAxisSpacing: 20.0,
@@ -64,9 +55,13 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-class PhrasesData {
-  PhrasesData(this.name, this.path);
-
-  final String name;
-  final String path;
-}
+final List<PhrasesData> phrasesData = <PhrasesData>[
+  PhrasesData('salut', 'salut.mp3'),
+  PhrasesData('salut (germana)', 'hallo.mp3'),
+  PhrasesData('ma numesc', 'manumesc.mp3'),
+  PhrasesData('ma numesc (germana)', 'ichheisse.mp3'),
+  PhrasesData('ce faci?', 'cefaci.mp3'),
+  PhrasesData('ce faci? (germana)', 'wastustdu.mp3'),
+  PhrasesData('sunt bine!', 'suntbine.mp3'),
+  PhrasesData('sunt bine! (germana)', 'esgehtmirgut.mp3'),
+];
