@@ -1,3 +1,4 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -19,6 +20,26 @@ class _HomePageState extends State<HomePage> {
     'sunt bine germana'
   ];
 
+  final List<PhrasesData> phrasesData = <PhrasesData>[
+    PhrasesData('salut', 'salut.mp3'),
+    PhrasesData('salut (germana)', 'hallo.mp3'),
+    PhrasesData('ma numesc', 'manumesc.mp3'),
+    PhrasesData('ma numesc (germana)', 'ichheisse.mp3'),
+    PhrasesData('ce faci?', 'cefaci.mp3'),
+    PhrasesData('ce faci? (germana)', 'wastustdu.mp3'),
+    PhrasesData('sunt bine!', 'suntbine.mp3'),
+    PhrasesData('sunt bine! (germana)', 'esgehtmirgut.mp3'),
+  ];
+
+  AudioCache audioCache = AudioCache(
+    prefix: 'assets/audio/',
+  );
+
+  void playSound(int index) {
+    audioCache.load(phrasesData[index].path);
+    audioCache.play(phrasesData[index].path);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,11 +58,9 @@ class _HomePageState extends State<HomePage> {
         itemBuilder: (BuildContext context, int index) {
           return ElevatedButton(
             onPressed: () {
-              setState(() {
-
-              });
+              playSound(index);
             },
-            child: Text(phrases[index]),
+            child: Text(phrasesData[index].name),
             style: ButtonStyle(
               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                 RoundedRectangleBorder(
@@ -54,4 +73,11 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+}
+
+class PhrasesData {
+  PhrasesData(this.name, this.path);
+
+  final String name;
+  final String path;
 }

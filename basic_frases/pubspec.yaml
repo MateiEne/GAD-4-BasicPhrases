@@ -10,10 +10,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
-  audioplayers: any
-
   cupertino_icons: ^1.0.2
+  audioplayers: ^0.20.1
 
 dev_dependencies:
   flutter_test:
@@ -23,6 +21,7 @@ dev_dependencies:
 
 flutter:
   assets:
-    - assets/audio/hallo.mp3
+    - assets/
+    - assets/audio/
   uses-material-design: true
 
