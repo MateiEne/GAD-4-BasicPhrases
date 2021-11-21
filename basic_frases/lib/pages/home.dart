@@ -9,17 +9,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<String> phrases = <String>[
-    'salut',
-    'salut germana',
-    'ma numesc',
-    'ma numesc germana',
-    'ce faci?',
-    'ce faci? germana',
-    'sunt bine',
-    'sunt bine germana'
-  ];
-
   final List<PhrasesData> phrasesData = <PhrasesData>[
     PhrasesData('salut', 'salut.mp3'),
     PhrasesData('salut (germana)', 'hallo.mp3'),
