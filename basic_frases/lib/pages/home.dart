@@ -19,7 +19,7 @@ class _HomePageState extends State<HomePage> {
     audioCache.load(phrasesData[index].path);
     audioCache.play(phrasesData[index].path);
   }
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
